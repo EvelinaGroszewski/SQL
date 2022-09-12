@@ -1,0 +1,49 @@
+/** Products:
+Chamomile Tea (10)
+Elderberry Tea (15)
+Nettle Tea (5)
+Green Tea (20)
+English Breakfast Tea (20)
+Hibiscus Tea (8)
+White Tea (6)
+Mint Tea (12)
+Cough Mix Tea (25)
+Thyme Tea (10)
+Digestive Tea (13)
+Lavender Tea (10)
+Ginger Lemon Tea (10)
+Yerba Matte (4)
+Chai Tea (3)
+**/
+
+CREATE TABLE Products (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, restock_when INTEGER, shelf INTEGER);
+
+INSERT INTO Products VALUES (1, "Chamomile Tea", 10, 5, 1);
+INSERT INTO Products VALUES (2, "Elderberry Tea", 15, 5, 1);
+INSERT INTO Products VALUES (3, "Nettle Tea", 5, 5, 1);
+INSERT INTO Products VALUES (4, "Green Tea", 10, 7, 2);
+INSERT INTO Products VALUES (5, "English Breakfast Tea", 20, 10, 2);
+INSERT INTO Products VALUES (6, "Hibiscus Tea", 8, 3, 2);
+INSERT INTO Products VALUES (7, "White Tea", 6, 4, 2);
+INSERT INTO Products VALUES (8, "Mint Tea", 12, 5, 1);
+INSERT INTO Products VALUES (9, "Cough Mix Tea", 25, 10, 1);
+INSERT INTO Products VALUES (10, "Thyme Tea", 10, 4, 1);
+INSERT INTO Products VALUES (11, "Digestive Tea", 13, 5, 1);
+INSERT INTO Products VALUES (12, "Lavender Tea", 10, 3, 2);
+INSERT INTO Products VALUES (13, "Ginger Lemon Tea", 10, 3, 1);
+INSERT INTO Products VALUES (14, "Yerba Matte", 4, 5, 2);
+INSERT INTO Products VALUES (15, "Chai Tea", 3, 5, 2);
+
+--display database.
+SELECT * FROM Products;
+
+--amount of inventory on each shelf.
+SELECT shelf, SUM(quantity) FROM products GROUP BY shelf;
+
+--items that need to be to restocked.
+SELECT * FROM products WHERE "quantity"<="restock_when";
+
+--which inventory item we have the most of?
+SELECT name, MAX(quantity) FROM products;
+
+

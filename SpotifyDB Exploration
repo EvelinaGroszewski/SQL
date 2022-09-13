@@ -27,4 +27,12 @@ time_signature integer NOT NULL
 
 #Next, I explored the data using the following SQL. 
 
+--Who are the top 10 artists based on popularity?
+SELECT artist_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER  BY popularity DESC
+LIMIT 10;
+
+
+
 

@@ -60,3 +60,9 @@ FROM BIT_DB.FebSales Feb
 JOIN BIT_DB.customers cust
 ON Feb.orderID=cust.order_id;
 
+--What was the average quantity of products purchased per account in February? 
+SELECT SUM(quantity)/COUNT(cust.acctnum) AS Average_quantity
+FROM BIT_DB.FebSales Feb
+JOIN BIT_DB.customers cust
+ON Feb.orderID=cust.order_id;
+
